@@ -13,4 +13,7 @@ table {
     width: 45px;
     height: 45px;
   }
+  .selected {
+    background-color: aqua;
+  }
   

@@ -2,6 +2,8 @@ const BOARD_SIZE = 8;
 const WHITE_TYPE = 'white';
 const DARK_TYPE = 'dark_rotated';
 
+let selectedCell;
+
 function addImage(cell, type, name) {
   const image = document.createElement('img');
   image.src = 'images/' + type + '/' + name + '.png';
@@ -21,6 +23,13 @@ function addImageByIndex(cell, type, index) {
     addImage(cell, type, 'king');
   }
 }
+function onCellClick(event) {
+  if (selectedCell !== undefined) {
+    selectedCell.classList.remove('selected');
+  }
+ selectedCell = event.currentTarget;
+ selectedCell.classList.add('selected');
+}
 
 function createChessBoard() {
   const table1 = document.createElement('table');
@@ -35,6 +44,7 @@ function createChessBoard() {
       } else {
         cell.className = 'dark-cell';
       }
+      cell.addEventListener('click', onCellClick);
 
       if (i === 0) {
         addImageByIndex(cell, DARK_TYPE, j);
@@ -48,5 +58,4 @@ function createChessBoard() {
     }
   }
 }
-
 window.addEventListener('load', createChessBoard);
