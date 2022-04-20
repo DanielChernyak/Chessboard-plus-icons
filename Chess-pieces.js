@@ -30,7 +30,7 @@ class Piece {
     this.type = type;
     this.player = player;
   }
-
+// adding all possible moves for every piece
   getPossibleMoves() {
     let relativeMoves;
     if (this.type === PAWN) {
@@ -69,7 +69,6 @@ class Piece {
     console.log('filteredMoves', filteredMoves);
     return filteredMoves;
   }
-  // need to figure out how to create two opposite movement patterns
   getPawnRelativeMoves() {
     let result = [];
     if (this.player === WHITE_PLAYER) {
@@ -140,7 +139,7 @@ class Piece {
     return result;
   }
 }
-
+// adding the pieces and the appropriate imgs
 function getInitialBoard() {
   let result = [];
   addPieces(result, 0, BLACK_PLAYER);
@@ -194,7 +193,7 @@ function onCellClick(event, row, col) {
   selectedCell = event.currentTarget;
   selectedCell.classList.add('selected');
 }
-
+// configuring the board
 function createChessBoard() {
   table = document.createElement('table');
   document.body.appendChild(table);
