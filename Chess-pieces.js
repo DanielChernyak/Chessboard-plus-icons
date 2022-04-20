@@ -11,7 +11,17 @@ const QUEEN = 'queen';
 
 let selectedCell;
 let pieces = [];
-let table;
+let table1;
+
+class BoardData {
+  constructor(pieces) {
+    this.pieces = pieces;
+  }
+  // Returns piece in row, col, or undefined if not exists.
+  getPiece(row, col) {
+
+  }
+}
 
 class Piece {
   constructor(row, col, type, player) {
@@ -59,14 +69,15 @@ class Piece {
     console.log('filteredMoves', filteredMoves);
     return filteredMoves;
   }
-// need to figure out how to create two opposite movement patterns
+  // need to figure out how to create two opposite movement patterns
   getPawnRelativeMoves() {
-   if (this.type === WHITE_PLAYER) {
-    return [[-1, 0]];
-  } else {
-    return [[-1, 0]];
+    let result = [];
+    if (this.type === WHITE_PLAYER) {
+      return [[-1, 0]];
+    } else {
+      return [[-1, 0]];
+    }
   }
-}
   getRookRelativeMoves() {
     let result = [];
     for (let i = 1; i < BOARD_SIZE; i++) {
@@ -77,16 +88,21 @@ class Piece {
     }
     return result;
   }
-}
-
-class BoardData {
-  constructor(pieces) {
-    this.pieces = pieces;
+  getKnightRelativeMoves() {
+    let result = [];
+    result.push([1, 2])
+    result.push([1, -2])
+    result.push([-1, 2])
+    result.push([-1, -2])
+    result.push([2, 1])
+    result.push([2, -1])
+    result.push([-2, 1])
+    result.push([-2, -1])
+    return result;
   }
-
-  // Returns piece in row, col, or undefined if not exists.
-  getPiece(row, col) {
-
+  getBishopRelativeMoves() {
+    let result = [];
+    result.push([i, i])
   }
 }
 
@@ -133,7 +149,7 @@ function onCellClick(event, row, col) {
       console.log(piece);
       let possibleMoves = piece.getPossibleMoves();
       for (let possibleMove of possibleMoves)
-      table.rows[possibleMove[0]].cells[possibleMove[1]].classList.add('possible-move');
+        table.rows[possibleMove[0]].cells[possibleMove[1]].classList.add('possible-move');
     }
   }
 
