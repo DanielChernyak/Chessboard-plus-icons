@@ -72,11 +72,12 @@ class Piece {
   // need to figure out how to create two opposite movement patterns
   getPawnRelativeMoves() {
     let result = [];
-    if (this.type === WHITE_PLAYER) {
-      return [[-1, 0]];
+    if (this.player === WHITE_PLAYER) {
+      result.push([-1, 0]);
     } else {
-      return [[-1, 0]];
+      result.push([1, 0]);
     }
+    return result;
   }
   getRookRelativeMoves() {
     let result = [];
@@ -90,19 +91,53 @@ class Piece {
   }
   getKnightRelativeMoves() {
     let result = [];
-    result.push([1, 2])
-    result.push([1, -2])
-    result.push([-1, 2])
-    result.push([-1, -2])
-    result.push([2, 1])
-    result.push([2, -1])
-    result.push([-2, 1])
-    result.push([-2, -1])
+    result.push([1, 2]);
+    result.push([1, -2]);
+    result.push([-1, 2]);
+    result.push([-1, -2]);
+    result.push([2, 1]);
+    result.push([2, -1]);
+    result.push([-2, 1]);
+    result.push([-2, -1]);
     return result;
   }
   getBishopRelativeMoves() {
     let result = [];
-    result.push([i, i])
+    for (let i = 0; i < BOARD_SIZE; i++) {
+      result.push([i, i]);
+      result.push([i, -i]);
+      result.push([-i, i]);
+      result.push([-i, -i]);
+    }
+    return result;
+  }
+  getQueenRelativeMoves() {
+    let result = [];
+    for (let i = 0; i < BOARD_SIZE; i++) {
+      result.push([i, i]);
+      result.push([i, -i]);
+      result.push([-i, i]);
+      result.push([-i, -i]);
+      result.push([0, i]);
+      result.push([0, -i]);
+      result.push([i, 0]);
+      result.push([-i, 0]);
+    }
+    return result;
+  }
+  getKingRelativeMoves() {
+    let result = [];
+    for (let i = 0; i < 2; i++) {
+      result.push([i, i]);
+      result.push([i, -i]);
+      result.push([-i, i]);
+      result.push([-i, -i]);
+      result.push([0, i]);
+      result.push([0, -i]);
+      result.push([i, 0]);
+      result.push([-i, 0]);
+    }
+    return result;
   }
 }
 
