@@ -1,25 +1,22 @@
 table {
-  margin: 20px;
-  width: 400px;
-  height: 400px;
-}
-
-.light-cell {
-  background: rgb(211, 210, 210);
-  width: 45px;
-  height: 45px;
-}
-
-.dark-cell {
-  background: rgb(63, 63, 63);
-  width: 45px;
-  height: 45px;
-}
-
-.selected {
-  background: greenyellow;
-}
-
-.possible-move {
-  background: tan;
-}
+    margin: 20px;
+  }
+  
+  .light-cell {
+    background: rgb(211, 210, 210);
+    width: 45px;
+    height: 45px;
+  }
+  
+  .dark-cell {
+    background: rgb(63, 63, 63);
+    width: 45px;
+    height: 45px;
+  }
+  .selected {
+    background-color: aqua;
+  }
+  .possible-move {
+    background: rgb(221, 142, 46);
+  }
+  /* TODO:  */
