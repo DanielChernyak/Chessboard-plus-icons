@@ -1,5 +1,6 @@
 table {
-    margin: 20px;
+    margin: auto;
+    position: relative;
   }
   
   .light-cell {
@@ -19,4 +20,17 @@ table {
   .possible-move {
     background: rgb(221, 142, 46);
   }
-  /* TODO:  */
+  .winner-dialog {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 50;
+    border-radius: 10px;
+    width: max-content;
+  }
+  
+  .title {
+    text-align: center;
+  }
