@@ -13,7 +13,7 @@ class Game {
           piece.row = row;
           piece.col = col;
           if (removedPiece !== undefined && removedPiece.type === KING) {
-            this.winner = piece.player;
+            this.winner = this.currentPlayer;
           }
           
           this.currentPlayer = piece.getOpponent();

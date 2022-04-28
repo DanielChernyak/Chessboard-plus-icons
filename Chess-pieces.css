@@ -25,7 +25,7 @@ table {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background: white;
+    background: blue;
     padding: 50;
     border-radius: 10px;
     width: max-content;
